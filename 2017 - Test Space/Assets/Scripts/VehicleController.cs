@@ -10,7 +10,7 @@ public class VehicleController : MonoBehaviour
     public float accelerationValue;
     public float brakeValue;
     public float steerValue;
-    public float decelerationValue = 1.0f;
+    public float decelerationValue = 4.0f;
 
     public float currentSpeed;
     public float maxSpeed;
@@ -68,7 +68,7 @@ public class VehicleController : MonoBehaviour
         }
 
         Vector3 tmp = transform.forward * currentSpeed;
-        tmp.y = rb.linearVelocity.y;
-        rb.linearVelocity = tmp;
+        rb.AddForce(tmp, ForceMode.Force);
+        //rb.linearVelocity = tmp;
     }
 }
