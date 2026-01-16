@@ -1,9 +1,11 @@
+using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class VehicleController : MonoBehaviour
 {
-    public InputAction accelrate;
+    public InputAction accelerate;
     public InputAction brake;
     public InputAction steer;
 
@@ -15,22 +17,23 @@ public class VehicleController : MonoBehaviour
     public float currentSpeed;
     public float maxSpeed;
 
-    const float ACCELERATION_FACTOR = 5.0f;
-    const float BRAKE_FACTOR = 10.0f;
-    const float STEER_FACTOR = 15.0f;
+    const float ACCELERATION_FACTOR = 10.0f;
+    const float BRAKE_FACTOR = 5.0f;
+    const float STEER_FACTOR = 25.0f;
 
     private Rigidbody rb;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        accelrate.Enable();
+        accelerate.Enable();
         brake.Enable();
         steer.Enable();
 
-        accelrate.performed += AccelerateInput;
-        accelrate.canceled += AccelerateInput;
+        accelerate.performed += AccelerateInput;
+        accelerate.canceled += AccelerateInput;
 
         brake.performed += BrakeInput;
         brake.canceled += BrakeInput;
@@ -56,19 +59,32 @@ public class VehicleController : MonoBehaviour
 
     private void Update()
     {
+
         currentSpeed -= decelerationValue * Time.deltaTime;
         currentSpeed += accelerationValue * Time.deltaTime;
         currentSpeed -= brakeValue * Time.deltaTime;
-        currentSpeed = Mathf.Clamp(currentSpeed, 0f, maxSpeed); //clamps between a min and max value and if out thay range sets it within       
-
+        currentSpeed = Mathf.Clamp(currentSpeed, 0f, maxSpeed);
         if (Mathf.Abs(currentSpeed) > 0.01f)
         {
             float steer = steerValue * Mathf.Sign(currentSpeed);
             transform.Rotate(0f, steer * Time.deltaTime, 0f);
         }
 
-        Vector3 tmp = transform.forward * currentSpeed;
-        rb.AddForce(tmp, ForceMode.Force);
-        //rb.linearVelocity = tmp;
+        Vector3 tmp = transform.forward * (currentSpeed);
+        rb.linearVelocity = tmp;
+    }
+
+    public void SpeedBoost(float boost_)
+    {
+        StartCoroutine(BoostTimer(boost_, 10f));
+    }
+
+    private IEnumerator BoostTimer(float boost_, float duration_)
+    {
+        currentSpeed += boost_;
+        maxSpeed += boost_ * 2;
+        yield return new WaitForSeconds(duration_);
+        currentSpeed -= boost_;
+        maxSpeed -= boost_ * 2;
     }
 }
