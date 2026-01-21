@@ -21,6 +21,12 @@ public class VehicleController : MonoBehaviour
     const float BRAKE_FACTOR = -25.0f;
     const float STEER_FACTOR = 75.0f;
 
+    bool checkPointOne = false;
+    bool checkPointTwo = false;
+    bool checkPointThree = false;
+
+    GhostDataSave ghostDataSave;
+
     private Rigidbody rb;
 
     private void Start()
@@ -97,4 +103,38 @@ public class VehicleController : MonoBehaviour
         currentSpeed -= boost_;
         maxSpeed -= boost_ * 2;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("CheckPointOne"))
+        {
+            checkPointOne = true;
+        }
+
+        if (other.CompareTag("CheckPointTwo"))
+        {
+            checkPointTwo = true;
+        }
+
+        if (other.CompareTag("CheckPointThree"))
+        {
+            checkPointThree = true;
+        }
+
+        if (other.CompareTag("FinishLine"))
+        {
+            if (checkPointOne && checkPointTwo && checkPointThree)
+            {
+                //lap completed 
+                Debug.Log("Lap Completed");
+                
+            }
+
+            checkPointOne = false;
+            checkPointTwo = false;
+            checkPointThree = false;
+        }
+    }
 }
+
+

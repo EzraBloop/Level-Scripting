@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - SpeedBoost
+  - FinishLine
+  - CheckPointOne
+  - CheckPointTwo
+  - CheckPointThree
   layers:
   - Default
   - TransparentFX

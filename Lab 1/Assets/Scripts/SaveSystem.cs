@@ -13,7 +13,7 @@ public class SaveSystem : MonoBehaviour
     private void Start()
     {
         //CreateSave("jared", 124);
-        Debug.Log(LoadData("jared"));
+        //Debug.Log(LoadData("jared"));
     }
     public void CreateSave(string profileName_, int highScore_)
     {
@@ -67,6 +67,7 @@ public class SaveData
 {
     public string profileName;
     public int highScore;
+    public GhostData ghostData;
 
     public SaveData(string profileName_, int highScore_)
     {
