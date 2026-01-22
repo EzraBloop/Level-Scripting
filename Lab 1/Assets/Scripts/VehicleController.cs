@@ -25,16 +25,13 @@ public class VehicleController : MonoBehaviour
     bool checkPointTwo = false;
     bool checkPointThree = false;
 
-    GhostDataSave ghostDataSave;
-    JSonSaving saveData;
-
     private Rigidbody rb;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Interpolate;
-        saveData = new JSonSaving();
+
 
         accelerate.Enable();
         brake.Enable();
@@ -129,7 +126,6 @@ public class VehicleController : MonoBehaviour
             {
                 //lap completed 
                 Debug.Log("Lap Completed");
-                saveData.SaveData();
 
             }
 
