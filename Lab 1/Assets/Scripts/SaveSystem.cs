@@ -62,16 +62,16 @@ public class SaveSystem : MonoBehaviour
     }
 }
 
-[Serializable]
-public class SaveData
-{
-    public string profileName;
-    public int highScore;
-    public GhostData ghostData;
+//[Serializable]
+//public class SaveData
+//{
+//    public string profileName;
+//    public int highScore;
+//    public GhostData ghostData;
 
-    public SaveData(string profileName_, int highScore_)
-    {
-        profileName = profileName_;
-        highScore = highScore_;
-    }
-}
+//    public SaveData(string profileName_, int highScore_)
+//    {
+//        profileName = profileName_;
+//        highScore = highScore_;
+//    }
+//}

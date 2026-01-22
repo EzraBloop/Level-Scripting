@@ -1,5 +1,6 @@
-using UnityEngine;
+using System;
 using System.IO;
+using UnityEngine;
 
 public class JSonSaving : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class JSonSaving : MonoBehaviour
         string file = filePath + profileName + ".json";
         string json = JsonUtility.ToJson(saveProfile, true);
 
+        Debug.Log(filePath);
         File.WriteAllText(filePath, json);
     }
 
@@ -32,5 +34,19 @@ public class JSonSaving : MonoBehaviour
         {
             Debug.LogError("Save file not found");
         }
+    }
+}
+
+[Serializable]
+public class SaveData
+{
+    public string profileName;
+    public int highScore;
+    public GhostData ghostData;
+
+    public SaveData(string profileName_, int highScore_)
+    {
+        profileName = profileName_;
+        highScore = highScore_;
     }
 }
