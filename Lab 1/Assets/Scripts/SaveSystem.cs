@@ -8,70 +8,70 @@ using UnityEngine;
 public class SaveSystem : MonoBehaviour
 {
 
-    public string filePath;
-    public List<SaveData> saveDataList = new List<SaveData>();
-    private void Start()
-    {
-        //CreateSave("jared", 124);
-        //Debug.Log(LoadData("jared"));
-    }
-    public void CreateSave(string profileName_, int highScore_)
-    {
-        SaveData saveData = new SaveData(profileName_, highScore_);
-        bool fileExists = File.Exists(filePath);
+    //public string filePath;
+    //public List<SaveData> saveDataList = new List<SaveData>();
+    //private void Start()
+    //{
+    //    //CreateSave("jared", 124);
+    //    //Debug.Log(LoadData("jared"));
+    //}
+    //public void CreateSave(string profileName_, int highScore_)
+    //{
+    //    SaveData saveData = new SaveData(profileName_, highScore_);
+    //    bool fileExists = File.Exists(filePath);
 
-        using (StreamWriter writer = new StreamWriter(filePath, true))
-        {
-            if (!fileExists)
-            {
-                writer.WriteLine("Profile Name, Score");
-            }
+    //    using (StreamWriter writer = new StreamWriter(filePath, true))
+    //    {
+    //        if (!fileExists)
+    //        {
+    //            writer.WriteLine("Profile Name, Score");
+    //        }
 
-            writer.WriteLine($"{saveData.profileName}, {saveData.highScore}");
-            saveDataList.Add(saveData);
-        }
-    }
+    //        writer.WriteLine($"{saveData.profileName}, {saveData.highScore}");
+    //        saveDataList.Add(saveData);
+    //    }
+    //}
 
-    public void UpdateSave(SaveData saveData_)
-    {
+    //public void UpdateSave(SaveData saveData_)
+    //{
 
-    }
+    //}
 
-    public void DeleteSave(SaveData saveData_)
-    {
+    //public void DeleteSave(SaveData saveData_)
+    //{
 
-    }
+    //}
 
-    public int LoadData(string profileName)
-    {
-        int highScore = 0;
-        string[] lines = File.ReadAllLines(filePath);
-        for (int i = 0; i < lines.Length; i++)
-        {
-            string[] columns = Regex.Split(lines[i], ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+    //public int LoadData(string profileName)
+    //{
+    //    int highScore = 0;
+    //    string[] lines = File.ReadAllLines(filePath);
+    //    for (int i = 0; i < lines.Length; i++)
+    //    {
+    //        string[] columns = Regex.Split(lines[i], ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
 
-            if (columns[0] == profileName)
-            {
-                highScore = int.Parse(columns[1]);
-                break;
-            }
-        }
-        SaveData saveData = new SaveData(profileName, highScore);
-        saveDataList.Add(saveData);
-        return highScore;
-    }
+    //        if (columns[0] == profileName)
+    //        {
+    //            highScore = int.Parse(columns[1]);
+    //            break;
+    //        }
+    //    }
+    //    SaveData saveData = new SaveData(profileName, highScore);
+    //    saveDataList.Add(saveData);
+    //    return highScore;
+    //}
 }
 
-[Serializable]
-public class SaveData
-{
-    public string profileName;
-    public int highScore;
-    public GhostData ghostData;
+//[Serializable]
+//public class SaveData
+//{
+//    public string profileName;
+//    public int highScore;
+//    public GhostData ghostData;
 
-    public SaveData(string profileName_, int highScore_)
-    {
-        profileName = profileName_;
-        highScore = highScore_;
-    }
-}
+//    public SaveData(string profileName_, int highScore_)
+//    {
+//        profileName = profileName_;
+//        highScore = highScore_;
+//    }
+//}

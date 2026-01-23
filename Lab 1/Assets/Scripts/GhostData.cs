@@ -15,6 +15,9 @@ public class GhostData
     {
         ghostDataFrames.Add(new GhostDataFrame(position_, rotation_));
     }
+
+    public void ResetFrame()
+    { ghostDataFrames.Clear();}
 }
 
 [Serializable]

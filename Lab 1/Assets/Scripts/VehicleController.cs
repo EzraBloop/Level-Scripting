@@ -10,6 +10,8 @@ public class VehicleController : MonoBehaviour
     public InputAction brake;
     public InputAction steer;
 
+    public UnityEvent OnCollision;
+
     public float accelerationValue;
     public float brakeValue;
     public float steerValue;
@@ -45,6 +47,8 @@ public class VehicleController : MonoBehaviour
 
         steer.performed += SteerInput;
         steer.canceled += SteerInput;
+
+        Physics.gravity = new Vector3(0, -15, 0);
     }
 
     public void AccelerateInput(InputAction.CallbackContext c)
@@ -124,9 +128,8 @@ public class VehicleController : MonoBehaviour
         {
             if (checkPointOne && checkPointTwo && checkPointThree)
             {
-                //lap completed 
                 Debug.Log("Lap Completed");
-
+                OnCollision?.Invoke();
             }
 
             Debug.Log(checkPointOne);
