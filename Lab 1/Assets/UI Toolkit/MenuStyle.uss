@@ -1,0 +1,9 @@
+:root {
+}
+
+.header {
+}
+
+.button {
+    align-self: center;
+}

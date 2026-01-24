@@ -3873,6 +3873,7 @@ GameObject:
   - component: {fileID: 270663775}
   - component: {fileID: 270663774}
   - component: {fileID: 270663773}
+  - component: {fileID: 270663777}
   m_Layer: 0
   m_Name: SpeedBoost (2)
   m_TagString: SpeedBoost
@@ -3973,6 +3974,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &270663777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270663772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880a856428076024f8791e079edc10eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionEventHandler
+  tagToCheck: Player
+  OnCollision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1171032361}
+        m_TargetAssemblyTypeName: VehicleController, Assembly-CSharp
+        m_MethodName: SpeedBoost
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 15
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &278840948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1526096022478356005, guid: c3b39774928a5e94daf25b95a6a98019, type: 3}
@@ -6167,6 +6196,7 @@ GameObject:
   - component: {fileID: 384610673}
   - component: {fileID: 384610672}
   - component: {fileID: 384610671}
+  - component: {fileID: 384610675}
   m_Layer: 0
   m_Name: SpeedBoost (1)
   m_TagString: SpeedBoost
@@ -6267,6 +6297,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &384610675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384610670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880a856428076024f8791e079edc10eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionEventHandler
+  tagToCheck: Player
+  OnCollision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1171032361}
+        m_TargetAssemblyTypeName: VehicleController, Assembly-CSharp
+        m_MethodName: SpeedBoost
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 15
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &386018736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6914,18 +6972,6 @@ MonoBehaviour:
   OnCollision:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 432479336}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1171032361}
         m_TargetAssemblyTypeName: VehicleController, Assembly-CSharp
         m_MethodName: SpeedBoost
@@ -29932,6 +29978,7 @@ GameObject:
   - component: {fileID: 1923159859}
   - component: {fileID: 1923159858}
   - component: {fileID: 1923159857}
+  - component: {fileID: 1923159861}
   m_Layer: 0
   m_Name: SpeedBoost (3)
   m_TagString: SpeedBoost
@@ -30032,6 +30079,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1923159861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923159856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880a856428076024f8791e079edc10eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionEventHandler
+  tagToCheck: Player
+  OnCollision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1171032361}
+        m_TargetAssemblyTypeName: VehicleController, Assembly-CSharp
+        m_MethodName: SpeedBoost
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 15
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1925385526 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8814257842325374643, guid: c3b39774928a5e94daf25b95a6a98019, type: 3}
