@@ -5,8 +5,12 @@ public class GhostVehicle : MonoBehaviour
     public JSonSaving loading;
     SaveData saveData;
     int index;
-    bool ghostPlayback;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+        //LoadData();
+    }
     void Start()
     {
         LoadData();
@@ -14,24 +18,19 @@ public class GhostVehicle : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(ghostPlayback)
-        {
-            StartGhost();
-        }
+         StartGhost();
     }
 
     public void StartGhost()
     {
-        if (index < saveData.ghostData.ghostDataFrames.Count)
+        if (saveData != null)
         {
-            transform.position = saveData.ghostData.ghostDataFrames[index].position;
-            transform.rotation = Quaternion.Euler(saveData.ghostData.ghostDataFrames[index].rotation);
-            index++;
-        }
-
-        if (index == saveData.ghostData.ghostDataFrames.Count)
-        {
-            ghostPlayback = false;
+            if (index < saveData.ghostData.ghostDataFrames.Count)
+            {
+                transform.position = saveData.ghostData.ghostDataFrames[index].position;
+                transform.rotation = Quaternion.Euler(saveData.ghostData.ghostDataFrames[index].rotation);
+                index++;
+            }
         }
     }
 

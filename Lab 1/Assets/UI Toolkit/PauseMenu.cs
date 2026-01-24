@@ -1,22 +1,20 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
-public class MainMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     private UIDocument menu;
     private Button startButton, quitButton;
     private List<Button> menuButtons = new List<Button>();
-    private VisualElement VE, profileVE;
+    private VisualElement VE;
     private InputAction controls;
-    private TextField profileName;
-    private Label title;
-
-
 
     private void Awake()
     {
@@ -29,16 +27,17 @@ public class MainMenu : MonoBehaviour
         menu = GetComponent<UIDocument>();
 
         VE = menu.rootVisualElement as VisualElement;
-        profileName = menu.rootVisualElement.Q<TextField>("ProfileName");
-        title = menu.rootVisualElement.Q<Label>("Title");
 
-
-        startButton = menu.rootVisualElement.Q("PlayButton") as Button;
-        quitButton = menu.rootVisualElement.Q("QuitButton") as Button;
+        startButton = menu.rootVisualElement.Q("RestartButton") as Button;
+        quitButton = menu.rootVisualElement.Q("MenuButton") as Button;
         menuButtons = menu.rootVisualElement.Query<Button>().ToList();
 
-        
+        VE.style.display = DisplayStyle.None;
+    }
 
+    private void Update()
+    {
+        
     }
 
     private void OnEnable()
@@ -56,26 +55,23 @@ public class MainMenu : MonoBehaviour
 
         controls.Disable();
     }
+    public void PauseGame()
+    {
+        VE.style.display = DisplayStyle.Flex;
+
+
+        UnityEngine.Cursor.visible = true;
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+    }
     private void onStartGame(NavigationSubmitEvent evt)
     {
-        if (profileName.value.Length > 0)
-        {
-            GameManager.SetName(profileName.value);
-            SceneManager.UnloadSceneAsync("Menu");
-            SceneManager.LoadScene("SceneOne", LoadSceneMode.Single);
-            Debug.Log("Start Game");
-            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-            UnityEngine.Cursor.visible = false;    
-        }
-        else
-        {
-            title.text = "Please enter a profile name to continue";
-        }
+        Debug.Log("restart");
+        SceneManager.LoadScene("SceneOne");
     }
 
     private void onQuitGame(NavigationSubmitEvent evt)
     {
-        Application.Quit();
-        Debug.Log("Quit Game");
+        SceneManager.UnloadSceneAsync("SceneOne");
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 }

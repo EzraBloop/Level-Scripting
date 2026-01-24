@@ -131,11 +131,6 @@ public class VehicleController : MonoBehaviour
                 Debug.Log("Lap Completed");
                 OnCollision?.Invoke();
             }
-
-            Debug.Log(checkPointOne);
-            Debug.Log(checkPointTwo);
-            Debug.Log(checkPointThree);
-
             checkPointOne = false;
             checkPointTwo = false;
             checkPointThree = false;

@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyle.uss?fileID=7433441132597879392&amp;guid=d2436a74eb477844ab3cd70720d028c3&amp;type=3#MenuStyle"/>
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:Label text="Lap completed! Try again? " class="header" style="align-self: center;"/>
+        <ui:Button text="Restart Race" name="RestartButton" class="button"/>
+        <ui:Button text="Main Menu" name="MenuButton" class="button"/>
+    </ui:VisualElement>
+</ui:UXML>

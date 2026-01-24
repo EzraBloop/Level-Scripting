@@ -3,16 +3,29 @@ using UnityEngine;
 public class GhostDataController : MonoBehaviour
 {
     public GhostData tempGhostData = new GhostData();
-    GhostData ghostData = new GhostData();
+    SaveData ghostData;
     private bool recording;
     public JSonSaving saving;
     int score;
 
-
+    private void Awake()
+    {
+        //ghostData = saving.LoadData();
+    }
     private void Start()
     {
+        tempGhostData.ResetFrame();
         StartRecording();
-        score = 99999999;
+        ghostData = saving.LoadData();
+        if(ghostData.highScore != 0 && ghostData != null)
+        {
+            score = ghostData.highScore;
+        }
+        else
+        {
+            score = 0;
+        }
+        
     }
     public void StartRecording()
     {
@@ -28,12 +41,19 @@ public class GhostDataController : MonoBehaviour
 
     public void SaveData()
     {
-        if(tempGhostData.ghostDataFrames.Count < score && tempGhostData.ghostDataFrames.Count != 0)
+        if(tempGhostData.ghostDataFrames.Count < score || score == 0)
         {
-            ghostData = tempGhostData;
-            score = ghostData.ghostDataFrames.Count;
-            saving.SaveData("Mike", score, ghostData);
+            //Debug.Log($"Slower Time {score}");
+            
+            score = tempGhostData.ghostDataFrames.Count;
+            saving.SaveData(GameManager.GetName(), score, tempGhostData);
+            //Debug.Log(GameManager.GetName());
+            //Debug.Log($"Faster Time {score}");
+
         }
-        tempGhostData.ResetFrame();
+        else
+        {
+            Debug.Log($"Slower Time, score not saved");
+        }
     }
 }
