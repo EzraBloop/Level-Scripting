@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [SerializeField] string profileName;
+    [SerializeField] string filePath;
 
     private void Awake()
     {
@@ -23,6 +24,16 @@ public class GameManager : MonoBehaviour
     public static void SetName(string value)
     {
         instance.profileName = value;
+    }
+
+    public static string GetFilePath()
+    {
+        return instance.filePath;
+    }
+
+    public static void SetFilePath(string value)
+    {
+        instance.filePath = value;
     }
    
 }

@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyle.uss?fileID=7433441132597879392&amp;guid=d2436a74eb477844ab3cd70720d028c3&amp;type=3#MenuStyle"/>
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI%20Toolkit/BoxRacer.png?fileID=2800000&amp;guid=84a417831ddf5344b912285ae280fcd1&amp;type=3#BoxRacer&quot;);">
+        <ui:Label text="Profile Select" name="Title" style="font-size: 35px; -unity-text-align: upper-center; margin-bottom: 20px; margin-top: 15px;"/>
+        <ui:Button text="" name="ProfileOneButton" class="button" style="align-items: stretch; font-size: 35px; height: 400px; width: 500px;">
+            <ui:Label text="Profile One" name="ProfileOneName" enabled="true" style="margin-top: 15px; margin-bottom: 20px; margin-left: 5px; margin-right: 5px;"/>
+            <ui:Label text="Best Time" name="HighScore" style="margin-top: 15px; margin-bottom: 20px; margin-left: 5px; margin-right: 5px;"/>
+        </ui:Button>
+        <ui:Button text="Button" name="ProfileTwoButton" class="button"/>
+    </ui:VisualElement>
+</ui:UXML>
