@@ -112,8 +112,8 @@ public class VehicleController : MonoBehaviour
         currentSpeed += boost_;
         maxSpeed += boost_ * 2;
         yield return new WaitForSeconds(duration_);
-        currentSpeed -= boost_;
-        maxSpeed -= boost_ * 2;
+        //currentSpeed -= boost_;
+        maxSpeed = 50;
     }
 
     public void SlowDown()
@@ -124,11 +124,10 @@ public class VehicleController : MonoBehaviour
     private IEnumerator SlowTimer(float duration_)
     {
         //currentSpeed -= boost_;
-        float currentMax = maxSpeed;
         maxSpeed = 10;
         yield return new WaitForSeconds(duration_);
         //currentSpeed += boost_;
-        maxSpeed = currentMax;
+        maxSpeed = 50;
     }
 
     private void OnTriggerEnter(Collider other)
