@@ -15,6 +15,7 @@ public class JSonSaving : MonoBehaviour
 
     private void Awake()
     {
+        filePath = Application.persistentDataPath;
         profileName = GameManager.GetName();
         file = filePath + profileName + ".json";
     }

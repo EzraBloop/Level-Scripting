@@ -107,6 +107,21 @@ public class VehicleController : MonoBehaviour
         maxSpeed -= boost_ * 2;
     }
 
+    public void SlowDown()
+    {
+        StartCoroutine(SlowTimer(10f));
+    }
+
+    private IEnumerator SlowTimer(float duration_)
+    {
+        //currentSpeed -= boost_;
+        float currentMax = maxSpeed;
+        maxSpeed = 10;
+        yield return new WaitForSeconds(duration_);
+        //currentSpeed += boost_;
+        maxSpeed = currentMax;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("CheckPointOne"))
