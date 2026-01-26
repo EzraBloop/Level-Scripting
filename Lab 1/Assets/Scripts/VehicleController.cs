@@ -3,6 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class VehicleController : MonoBehaviour
 {
@@ -49,6 +50,14 @@ public class VehicleController : MonoBehaviour
         steer.canceled += SteerInput;
 
         Physics.gravity = new Vector3(0, -15, 0);
+    }
+
+    private void Update()
+    {
+        if(Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     public void AccelerateInput(InputAction.CallbackContext c)
