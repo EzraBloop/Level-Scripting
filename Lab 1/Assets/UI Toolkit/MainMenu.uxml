@@ -1,9 +1,11 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MenuStyle.uss?fileID=7433441132597879392&amp;guid=d2436a74eb477844ab3cd70720d028c3&amp;type=3#MenuStyle"/>
     <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI%20Toolkit/BoxRacer.png?fileID=2800000&amp;guid=84a417831ddf5344b912285ae280fcd1&amp;type=3#BoxRacer&quot;);">
-        <ui:Label text="Box Racer" name="Title" class="header" style="align-self: center;"/>
-        <ui:TextField label="Profile Name" placeholder-text="Enter Name" name="ProfileName" select-all-on-focus="false" select-all-on-mouse-up="false" style="align-self: center; width: 258px;"/>
-        <ui:Button text="Play" name="PlayButton" class="button"/>
-        <ui:Button text="Quit" name="QuitButton" class="button"/>
+        <ui:Label text="Box Racer" name="Title" class="header" style="align-self: center; font-size: 40px;"/>
+        <ui:TextField label="Profile Name" placeholder-text="Enter Name" name="ProfileName" select-all-on-focus="false" select-all-on-mouse-up="false" style="align-self: center; width: 384px; font-size: 30px;"/>
+        <ui:Button text="Play" name="PlayButton" class="button" style="font-size: 40px; width: 300px; height: 100px;"/>
+        <ui:Button text="Quit" name="QuitButton" class="button" style="font-size: 40px; width: 300px; height: 100px;"/>
+        <ui:Button text="Delete Profile" name="DeleteButton" enabled="false" class="button" style="display: none;"/>
+        <ui:Button text="Confirm Delete?" name="ConfirmDelete" enabled="false" class="button" style="display: none;"/>
     </ui:VisualElement>
 </ui:UXML>

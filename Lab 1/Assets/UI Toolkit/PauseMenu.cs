@@ -15,6 +15,9 @@ public class PauseMenu : MonoBehaviour
     private List<Button> menuButtons = new List<Button>();
     private VisualElement VE;
     private InputAction controls;
+    private Label score, previousScore;
+
+    public GhostDataController tempData;
 
     private void Awake()
     {
@@ -27,6 +30,8 @@ public class PauseMenu : MonoBehaviour
         menu = GetComponent<UIDocument>();
 
         VE = menu.rootVisualElement as VisualElement;
+        score = menu.rootVisualElement.Q<Label>("HighScore");
+        previousScore = menu.rootVisualElement.Q<Label>("PreviousScore");
 
         startButton = menu.rootVisualElement.Q("RestartButton") as Button;
         quitButton = menu.rootVisualElement.Q("MenuButton") as Button;
@@ -58,19 +63,23 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         VE.style.display = DisplayStyle.Flex;
-
+        score.text = "Score this lap " + tempData.tempGhostData.ghostDataFrames.Count;
+        previousScore.text = "Best score " + tempData.score;
+        Time.timeScale = 0;
 
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
     }
     private void onStartGame(NavigationSubmitEvent evt)
     {
+        Time.timeScale = 1;
         Debug.Log("restart");
         SceneManager.LoadScene("SceneOne");
     }
 
     private void onQuitGame(NavigationSubmitEvent evt)
     {
+        Time.timeScale = 1;
         SceneManager.UnloadSceneAsync("SceneOne");
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }

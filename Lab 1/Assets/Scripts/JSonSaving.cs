@@ -52,7 +52,24 @@ public class JSonSaving : MonoBehaviour
             return null;
         }
     }
+
+    public void DeleteData()
+    {
+        if(File.Exists(file))
+        { 
+            File.Delete(file); 
+        }
+        else
+        {
+            Debug.LogError("Save file not found");
+        }
+    }
+    public void UpdateProfileName(string profileName_)
+    {
+        profileName = profileName_;
+    }
 }
+
 
 [Serializable]
 public class SaveData

@@ -6,7 +6,7 @@ public class GhostDataController : MonoBehaviour
     SaveData ghostData;
     private bool recording;
     public JSonSaving saving;
-    int score;
+    public int score;
 
     private void Awake()
     {
@@ -14,7 +14,7 @@ public class GhostDataController : MonoBehaviour
     }
     private void Start()
     {
-        tempGhostData.ResetFrame();
+        //tempGhostData.ResetFrame();
         StartRecording();
         ghostData = saving.LoadData();
         if(ghostData.highScore != 0 && ghostData != null)

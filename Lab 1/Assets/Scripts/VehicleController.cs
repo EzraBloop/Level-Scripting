@@ -54,7 +54,7 @@ public class VehicleController : MonoBehaviour
 
     private void Update()
     {
-        if(Keyboard.current.spaceKey.wasPressedThisFrame)
+        if(Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             SceneManager.LoadScene("Menu");
         }
