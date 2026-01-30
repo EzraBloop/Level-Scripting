@@ -27,4 +27,11 @@ public class TopDownPlayerMovement : MonoBehaviour
     {
         transform.position += new Vector3(movementDirection.x, movementDirection.y, 0) * moveSpeed * Time.deltaTime;
     }
+
+    //private bool CheckCollision(Vector2 moveDirection)
+    //{
+    //    RaycastHit2D hit;
+    //    hit = Physics2D.Raycast(collisionCheckPoint.position, moveDirection, 0.2f);
+    //    return hit;
+    //}
 }
