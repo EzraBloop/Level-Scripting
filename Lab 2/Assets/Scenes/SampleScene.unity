@@ -1155,10 +1155,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Overwolrd
       objectReference: {fileID: 0}
-    - target: {fileID: 2040593089150453272, guid: c101f64448ea1a64abfc7dedf9f78fe3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
