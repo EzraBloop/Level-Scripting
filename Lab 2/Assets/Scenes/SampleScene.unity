@@ -1373,7 +1373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIMovement
   range: 2
-  moveSpeed: 2
+  moveSpeed: 5
 --- !u!50 &1986106972
 Rigidbody2D:
   serializedVersion: 5
