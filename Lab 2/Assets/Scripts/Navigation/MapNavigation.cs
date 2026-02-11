@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -39,18 +40,27 @@ public class MapNavigation : MonoBehaviour
         // move the player to the designated cell
 
         GameStateManager.Instance.SaveGameState();
+        
+        currentMap.GetComponentInChildren<EnemySpawner>().ClearEnemies();
         Destroy(currentMap);
 
         currentMap = Instantiate(mapDictionary[mapID].prefab, mapParent);
         Grid g = mapParent.GetComponent<Grid>();
         player.position = g.GetCellCenterWorld(mapDictionary[mapID].entryPoints[portalID].cell);
-        GameStateManager.Instance.InitializeMap(mapID);
+        StartCoroutine(InitializeNextMap(mapID));
         OnMapEnter?.Invoke();
         // get the cell that we want to the player to spawn in mapDictionary[mapID].entryPoints[portalID].cell
         // convert the cell into world space. returns a Vector3 <-- the new position
         // set the position to the updated value
 
         // add aesthetics: screen fade, sfx, animations
+    }
+
+    private IEnumerator InitializeNextMap(int mapID)
+    {
+        yield return new WaitForEndOfFrame();
+        GameStateManager.Instance.InitializeMap(mapID);
+
     }
 }
 

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44df6db939096b648b416fdbb6f7877c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CircleOverlap
-  radius: 5
+  radius: 2
   tagToCheck: Player
   color: {r: 1, g: 0.17940986, b: 0, a: 1}
 --- !u!1 &6081059809630371611
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 2269996903310178450}
   - component: {fileID: 6968188015748255162}
   m_Layer: 0
-  m_Name: BasicRangedEnemy
+  m_Name: BasicMeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.703504, g: 0.66484374, b: 0.15075083, a: 1}
+  m_Color: {r: 0.6280323, g: 0.10749336, b: 0.5293312, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -238,12 +238,12 @@ MonoBehaviour:
   HP: 0
   ATK: 0
   DEF: 0
-  attackDelay: 5
+  attackDelay: 1
   sightline: {fileID: 3272761417531181434}
   attackRange: {fileID: 4231450109857481873}
   playerPosition: {x: 0, y: 0}
   patrolRange: {x: 5, y: 5}
-  projectilePrefab: {fileID: 8015388070689795284, guid: 81f9193e49b55664f8bb70e434511866, type: 3}
+  projectilePrefab: {fileID: 8015388070689795284, guid: 33fd9daad4fbed04a989e0d182a8d587, type: 3}
   projectileSpawnLocation: {fileID: 2297937729100727825}
 --- !u!114 &2269996903310178450
 MonoBehaviour:

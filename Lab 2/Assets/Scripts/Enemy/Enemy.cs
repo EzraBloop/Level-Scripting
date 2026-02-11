@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(AIMovement))]
@@ -35,6 +36,14 @@ public abstract class Enemy : MonoBehaviour
         startingPosition = transform.position;
     }
 
+    public void FixedUpdate()
+    {
+        if (HP <= 0)
+        {
+            Die();
+        }
+    }
+
     public void SetPlayerPosition(Vector2 pos_)
     {
         playerPosition = pos_;
@@ -55,7 +64,10 @@ public abstract class Enemy : MonoBehaviour
     {
         HP -= dmg_;
     }
-    public abstract void Die();
+    public void Die()
+    {
+        gameObject.SetActive(false);
+    }
     public void Pursue()
     {
         aiMovement.InitializeMovement(playerPosition);

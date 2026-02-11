@@ -148,32 +148,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7caee412824a3d6498371e2b1b7fcec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
-  mapStates:
-  - mapData: {fileID: 11400000, guid: 5b95b50b4683a62449e5488932bb5bd1, type: 2}
-    enemyStates:
-    - enemyID: 0
-      currentHP: 5
-      enemySO: {fileID: 11400000, guid: 280d9278710f6f241876233f6bf26ba5, type: 2}
-    - enemyID: 1
-      currentHP: 5
-      enemySO: {fileID: 11400000, guid: 280d9278710f6f241876233f6bf26ba5, type: 2}
-    - enemyID: 2
-      currentHP: 5
-      enemySO: {fileID: 11400000, guid: 280d9278710f6f241876233f6bf26ba5, type: 2}
-    - enemyID: 3
-      currentHP: 5
-      enemySO: {fileID: 11400000, guid: 280d9278710f6f241876233f6bf26ba5, type: 2}
-    - enemyID: 4
-      currentHP: 5
-      enemySO: {fileID: 11400000, guid: 280d9278710f6f241876233f6bf26ba5, type: 2}
-  - mapData: {fileID: 11400000, guid: a11892e9f7b978b41958f9bc60e9bbfe, type: 2}
-    enemyStates: []
-  - mapData: {fileID: 11400000, guid: 86aa5988893419f4d983611257c24c2c, type: 2}
-    enemyStates: []
-  - mapData: {fileID: 11400000, guid: 9e29ef79d0428864280ac09087670b7f, type: 2}
-    enemyStates: []
-  - mapData: {fileID: 11400000, guid: dd14b12f6a109b54cad58e0378beb951, type: 2}
-    enemyStates: []
+  gameState:
+    mapStates:
+    - mapID: 0
+      enemyStates:
+      - enemyID: 0
+        currentHP: 5
+      - enemyID: 1
+        currentHP: 10
+    - mapID: 1
+      enemyStates:
+      - enemyID: 0
+        currentHP: 5
+      - enemyID: 1
+        currentHP: 10
   mapParent: {fileID: 1823049501}
 --- !u!4 &76304605
 Transform:
@@ -848,6 +836,40 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Move Input
       m_Flags: 8
+    m_Flags: 0
+  attack:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: eda27f33-2212-4e3a-b2bf-d9bcf9893acd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 927cc982-2a77-4efc-8d35-76cdacd877ca
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
+    m_Flags: 0
+  interact:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1a31b89e-65f9-4456-ab67-00b6235f5010
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c9bb437e-b944-4ccb-9c9e-bf79c9973bd7
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
     m_Flags: 0
   moveSpeed: 10
 --- !u!212 &1707846594
