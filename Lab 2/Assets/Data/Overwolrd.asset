@@ -17,10 +17,10 @@ MonoBehaviour:
   mapID: 0
   entryPoints:
   - entryPointID: 0
-    cell: {x: 44, y: -11, z: 0}
+    cell: {x: 16, y: -6, z: 0}
   - entryPointID: 1
     cell: {x: -22, y: -13, z: 0}
   - entryPointID: 2
-    cell: {x: -8, y: -42, z: 0}
+    cell: {x: -6, y: -20, z: 0}
   - entryPointID: 3
-    cell: {x: -6, y: 43, z: 0}
+    cell: {x: -6, y: 6, z: 0}
