@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TopDownPlayerMovement : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class TopDownPlayerMovement : MonoBehaviour
     public InputAction attack;
     public InputAction interact;
     private Vector2 movementDirection = Vector2.zero;
+    public int hp = 10;
     public float moveSpeed;
     public event Action<Vector2> OnMove;
     private void Awake()
@@ -30,11 +32,16 @@ public class TopDownPlayerMovement : MonoBehaviour
     private void Update()
     {
         transform.position += new Vector3(movementDirection.x, movementDirection.y, 0) * moveSpeed * Time.deltaTime;
+
+        if(hp <= 0)
+        {
+            Die();
+        }
     }
 
     public void Attack(InputAction.CallbackContext c)
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.5f);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 4f);
 
         foreach (Collider2D hit in hits)
         {
@@ -45,10 +52,14 @@ public class TopDownPlayerMovement : MonoBehaviour
         }
     }
 
-    //private bool CheckCollision(Vector2 moveDirection)
-    //{
-    //    RaycastHit2D hit;
-    //    hit = Physics2D.Raycast(collisionCheckPoint.position, moveDirection, 0.2f);
-    //    return hit;
-    //}
+    public void TakeDamage(int dmg)
+    {
+        hp -= dmg;
+    }
+
+    public void Die()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
 }

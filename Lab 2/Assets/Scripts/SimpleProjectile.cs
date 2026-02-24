@@ -18,6 +18,15 @@ public class SimpleProjectile : MonoBehaviour
         StartCoroutine(ProjectileTimer());
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<TopDownPlayerMovement>().TakeDamage(2);
+            Destroy(gameObject);
+        }
+    }
+
     public IEnumerator ProjectileTimer()
         {
             yield return new WaitForSeconds(duration);
