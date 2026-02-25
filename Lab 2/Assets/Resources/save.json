@@ -1,0 +1,30 @@
+{
+    "mapStates": [
+        {
+            "mapID": 0,
+            "enemyStates": [
+                {
+                    "enemyID": 0,
+                    "currentHP": 5
+                },
+                {
+                    "enemyID": 1,
+                    "currentHP": 10
+                }
+            ]
+        },
+        {
+            "mapID": 1,
+            "enemyStates": [
+                {
+                    "enemyID": 0,
+                    "currentHP": 5
+                },
+                {
+                    "enemyID": 1,
+                    "currentHP": 10
+                }
+            ]
+        }
+    ]
+}

@@ -62,10 +62,13 @@ public class TopDownPlayerMovement : MonoBehaviour
         foreach (Collider2D hit in hits)
         {
             Debug.Log(hit);
-            if (hit.GetComponent<InteractableItem>() != null) 
+
+            if (hit.CompareTag("Fountain"))
             {
-                hit.GetComponent<InteractableItem>().Interact();
+                Heal();
             }
+
+
         }
     }
 

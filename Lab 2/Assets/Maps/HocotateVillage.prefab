@@ -3698,13 +3698,11 @@ GameObject:
   - component: {fileID: 1685717237873218218}
   - component: {fileID: 5855225903440873550}
   - component: {fileID: 7449014899313034001}
-  - component: {fileID: 4227067878188825006}
-  - component: {fileID: 4679952572497243857}
   - component: {fileID: 41322538001569576}
   - component: {fileID: 9043777198802347683}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Fountain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3866,46 +3864,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
---- !u!114 &4227067878188825006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3156810508828794415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e3c2286d02d2d4499285115134b66f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableItem
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4679952572497243857}
-        m_TargetAssemblyTypeName: Fountain, Assembly-CSharp
-        m_MethodName: HealPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4679952572497243857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3156810508828794415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3996b8d5b4d2a49ac6c1a407ef513f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Fountain
-  player: {fileID: 0}
 --- !u!61 &41322538001569576
 BoxCollider2D:
   m_ObjectHideFlags: 0
