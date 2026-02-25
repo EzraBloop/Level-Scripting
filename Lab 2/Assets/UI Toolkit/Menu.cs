@@ -1,3 +1,4 @@
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,7 +20,14 @@ public class Menu : MonoBehaviour
         resume = rootVE.Q<Button>("Continue");
         quit = rootVE.Q<Button>("Quit");
 
-
+        if(!File.Exists(saveing.filePath))
+        {
+            resume.SetEnabled(false);
+        }
+        else
+        {
+            resume.SetEnabled(true);
+        }
     }
 
     private void OnEnable()
@@ -44,7 +52,6 @@ public class Menu : MonoBehaviour
     public void OnContinue(ClickEvent evt)
     {
         saveing.LoadData();
-
     }
 
     public void OnQuit(ClickEvent evt)
