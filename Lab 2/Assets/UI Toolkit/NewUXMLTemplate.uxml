@@ -1,7 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheet.uss?fileID=7433441132597879392&amp;guid=acf1922883c09c74999f36ec694a4cce&amp;type=3#StyleSheet"/>
     <ui:VisualElement style="flex-grow: 1;">
-        <ui:Button text="New Game" name="NewGame"/>
-        <ui:Button text="Continue" name="Continue"/>
-        <ui:Button text="Quit" name="Quit"/>
+        <ui:Button text="New Game" name="NewGame" class="button"/>
+        <ui:Button text="Continue" name="Continue" class="button"/>
+        <ui:Button text="Quit" name="Quit" class="button"/>
     </ui:VisualElement>
 </ui:UXML>

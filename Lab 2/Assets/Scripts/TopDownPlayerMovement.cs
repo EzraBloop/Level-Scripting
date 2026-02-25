@@ -20,6 +20,9 @@ public class TopDownPlayerMovement : MonoBehaviour
 
         attack.Enable();
         attack.performed += Attack;
+
+        interact.Enable();
+        interact.performed += Interact;
     }
 
     public void GetMoveVector(InputAction.CallbackContext c)
@@ -52,10 +55,30 @@ public class TopDownPlayerMovement : MonoBehaviour
         }
     }
 
+    public void Interact(InputAction.CallbackContext c)
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 4f);
+
+        foreach (Collider2D hit in hits)
+        {
+            Debug.Log(hit);
+            if (hit.GetComponent<InteractableItem>() != null) 
+            {
+                hit.GetComponent<InteractableItem>().Interact();
+            }
+        }
+    }
+
     public void TakeDamage(int dmg)
     {
         hp -= dmg;
     }
+
+    public void Heal()
+    {
+        hp = 10;
+    }
+
 
     public void Die()
     {
