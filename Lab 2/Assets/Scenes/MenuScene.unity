@@ -128,7 +128,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 263138012}
-  - component: {fileID: 263138011}
   - component: {fileID: 263138010}
   m_Layer: 0
   m_Name: GameState
@@ -152,21 +151,6 @@ MonoBehaviour:
   filePath: 
   profileData:
     mapStates: []
---- !u!114 &263138011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263138009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7caee412824a3d6498371e2b1b7fcec0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
-  gameState:
-    mapStates: []
-  mapParent: {fileID: 0}
 --- !u!4 &263138012
 Transform:
   m_ObjectHideFlags: 0

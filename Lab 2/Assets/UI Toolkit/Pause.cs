@@ -1,4 +1,6 @@
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class Pause : MonoBehaviour
@@ -29,5 +31,6 @@ public class Pause : MonoBehaviour
     public void OnSave(ClickEvent evt)
     {
         saveing.SaveData();
+        SceneManager.LoadScene("MenuScene");
     }
 }

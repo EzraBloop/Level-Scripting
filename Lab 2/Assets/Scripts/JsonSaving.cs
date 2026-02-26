@@ -44,4 +44,18 @@ public class JSonSaving : MonoBehaviour
             Debug.LogError("Save file not found");
         }
     }
+
+    public void DeleteData()
+    {
+        string s = "Assets/Resources/save.json";
+        if (File.Exists(s))
+        {
+            File.Delete(s);
+        }
+
+        else
+        {
+            Debug.LogError("Save file not found");
+        }
+    }
 }

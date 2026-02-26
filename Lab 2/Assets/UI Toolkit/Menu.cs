@@ -20,14 +20,6 @@ public class Menu : MonoBehaviour
         resume = rootVE.Q<Button>("Continue");
         quit = rootVE.Q<Button>("Quit");
 
-        if(!File.Exists(saveing.filePath))
-        {
-            resume.SetEnabled(false);
-        }
-        else
-        {
-            resume.SetEnabled(true);
-        }
     }
 
     private void OnEnable()
@@ -46,12 +38,22 @@ public class Menu : MonoBehaviour
 
     public void OnNewGame(ClickEvent evt)
     {
+        saveing.DeleteData();
         SceneManager.LoadScene("SceneOne");
     }
 
     public void OnContinue(ClickEvent evt)
     {
         saveing.LoadData();
+        if (!File.Exists(saveing.filePath))
+        {
+            Debug.Log("no file");
+        }
+        else
+        {
+            SceneManager.LoadScene("SceneOne");
+        }
+        
     }
 
     public void OnQuit(ClickEvent evt)
