@@ -9,31 +9,19 @@ public class GameStateManager : MonoBehaviour
     //public List<MapState> mapStates = new List<MapState>();
     public GameState gameState;
     public Transform mapParent;
-
-    //public TopDownPlayerMovement player;
-    //private int playerHP; 
-
     private EnemySpawner spawner;
     private int currentMapID;
     private MapState currentMapState;
-
-    private int treasureCollected;
-
-    public int TreasureCollected { get => treasureCollected; set => treasureCollected = value; }
-
+    private LoadInfo loadInfo;
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
+        Instance = this;
+        loadInfo = GameObject.FindGameObjectWithTag("LoadInfo").GetComponent<LoadInfo>();
+        gameState = loadInfo.state;
     }
+
     private void Start()
     {
-        
-
         foreach (MapState mapState in gameState.mapStates)
         {
             mapState.InitializeDictionary();
@@ -50,6 +38,11 @@ public class GameStateManager : MonoBehaviour
             {
                 currentMapState = mapState;
                 BeginEnemySpawn(currentMapState);
+                if(mapState.treasureCollected == true)
+                {
+                    mapState.treasure.SetActive(false);
+                }
+
                 break;
             }
         }
@@ -65,13 +58,23 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
+    public void ResetEnemies()
+    {
+        foreach (MapState m in gameState.mapStates)
+        {
+            foreach (EnemyState e in m.enemyStates)
+            {
+                e.currentHP = e.maxHP;
+            }
+        }
+    }
+
     [ContextMenu("Try Save")]
     public void SaveGameState()
     {
         if (spawner != null)
         {
             List<Enemy> enemies = spawner.activeEnemies;
-            Debug.Log(spawner.activeEnemies);
             foreach (Enemy enemy in enemies)
             {
                 currentMapState.enemyDictionary[enemy.enemyID].currentHP = enemy.HP;
@@ -79,14 +82,16 @@ public class GameStateManager : MonoBehaviour
 
             }
         }
+
     }
-    
 }
 
 [Serializable]
 public class MapState
 {
     public int mapID;
+    public GameObject treasure;
+    public bool treasureCollected;
     public List<EnemyState> enemyStates;
     [NonSerialized] public Dictionary<int, EnemyState> enemyDictionary;
 
@@ -105,12 +110,12 @@ public class EnemyState
 {
     public int enemyID;
     public int currentHP;
+    public int maxHP;
 }
 
 [Serializable]
 public class GameState
 {
     public List<MapState> mapStates;
-    public int playerHP;
-    public int treasure;
+    public int tresure; 
 }

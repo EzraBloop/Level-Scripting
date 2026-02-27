@@ -5,11 +5,16 @@ public class JSonSaving : MonoBehaviour
 {
     public string filePath;
     public GameState profileData;
+    public LoadInfo loadInfo;
     string profileName;
     [ContextMenu("JSON Save")]
+    private void Awake()
+    {
+        loadInfo = GameObject.FindGameObjectWithTag("LoadInfo").GetComponent<LoadInfo>();
+    }
     private void Start()
     {
-        profileData = GameStateManager.Instance.gameState;
+        //profileData = GameStateManager.Instance.gameState;
         filePath = Application.persistentDataPath + ".json";
     }
     public void SaveData()
@@ -40,9 +45,9 @@ public class JSonSaving : MonoBehaviour
         if (File.Exists(s))
         {
             string json = File.ReadAllText(s);
-            Debug.Log(json);
-            GameStateManager.Instance.gameState = JsonUtility.FromJson<GameState>(json);
-            Debug.Log(GameStateManager.Instance.gameState);
+            //Debug.Log(json);
+            loadInfo.state = JsonUtility.FromJson<GameState>(json);
+            //Debug.Log(GameStateManager.Instance.gameState);
         }
 
         else

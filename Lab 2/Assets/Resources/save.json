@@ -5,11 +5,13 @@
             "enemyStates": [
                 {
                     "enemyID": 0,
-                    "currentHP": 5
+                    "currentHP": -1,
+                    "maxHP": 0
                 },
                 {
                     "enemyID": 1,
-                    "currentHP": 10
+                    "currentHP": 0,
+                    "maxHP": 0
                 }
             ]
         },
@@ -18,11 +20,13 @@
             "enemyStates": [
                 {
                     "enemyID": 0,
-                    "currentHP": 5
+                    "currentHP": 5,
+                    "maxHP": 0
                 },
                 {
                     "enemyID": 1,
-                    "currentHP": 10
+                    "currentHP": 10,
+                    "maxHP": 0
                 }
             ]
         },
@@ -31,15 +35,18 @@
             "enemyStates": [
                 {
                     "enemyID": 0,
-                    "currentHP": 5
+                    "currentHP": 5,
+                    "maxHP": 0
                 },
                 {
                     "enemyID": 1,
-                    "currentHP": 5
+                    "currentHP": 5,
+                    "maxHP": 0
                 },
                 {
                     "enemyID": 2,
-                    "currentHP": 5
+                    "currentHP": 5,
+                    "maxHP": 0
                 }
             ]
         },
@@ -48,15 +55,15 @@
             "enemyStates": [
                 {
                     "enemyID": 0,
-                    "currentHP": 10
+                    "currentHP": 10,
+                    "maxHP": 0
                 },
                 {
                     "enemyID": 1,
-                    "currentHP": 10
+                    "currentHP": 10,
+                    "maxHP": 0
                 }
             ]
         }
-    ],
-    "playerHP": 0,
-    "treasure": 0
+    ]
 }

@@ -28,7 +28,7 @@ public class HUD : MonoBehaviour
     public void UpdateHUD()
     {
         health.text = "Health " + player.hp.ToString();
-        treasure.text = "Treasure " + state.TreasureCollected.ToString();
+        //treasure.text = "Treasure " + state.TreasureCollected.ToString();
     }
 
     private void OnEnable()
