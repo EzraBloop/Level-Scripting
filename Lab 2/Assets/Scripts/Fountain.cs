@@ -12,7 +12,6 @@ public class Fountain : MonoBehaviour
     }
     public void HealPlayer()
     {
-
         Debug.Log("Player healed");
         player.Heal();
     }

@@ -68,7 +68,10 @@ public class TopDownPlayerMovement : MonoBehaviour
                 Heal();
             }
 
-
+            if(hit.CompareTag("Treasure"))
+            {
+                hit.GetComponent<Treasure>().OnPickup();
+            }
         }
     }
 

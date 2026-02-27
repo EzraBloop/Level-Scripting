@@ -17,10 +17,12 @@ public class MapNavigation : MonoBehaviour
     private void Awake()
     {
         if (Instance == null) Instance = this;
+        GameStateManager.Instance.mapParent = mapParent;
     }
 
     private void Start()
     {
+
         InitializeMapDictionary();
     }
 

@@ -25,6 +25,38 @@
                     "currentHP": 10
                 }
             ]
+        },
+        {
+            "mapID": 3,
+            "enemyStates": [
+                {
+                    "enemyID": 0,
+                    "currentHP": 5
+                },
+                {
+                    "enemyID": 1,
+                    "currentHP": 5
+                },
+                {
+                    "enemyID": 2,
+                    "currentHP": 5
+                }
+            ]
+        },
+        {
+            "mapID": 4,
+            "enemyStates": [
+                {
+                    "enemyID": 0,
+                    "currentHP": 10
+                },
+                {
+                    "enemyID": 1,
+                    "currentHP": 10
+                }
+            ]
         }
-    ]
+    ],
+    "playerHP": 0,
+    "treasure": 0
 }

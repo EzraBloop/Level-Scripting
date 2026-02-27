@@ -45,12 +45,13 @@ public class Menu : MonoBehaviour
     public void OnContinue(ClickEvent evt)
     {
         saveing.LoadData();
-        if (!File.Exists(saveing.filePath))
+        if (!File.Exists("Assets/Resources/save.json"))
         {
             Debug.Log("no file");
         }
         else
         {
+            //Debug.Log("File Loaded");
             SceneManager.LoadScene("SceneOne");
         }
         

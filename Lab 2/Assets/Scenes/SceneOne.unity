@@ -163,6 +163,22 @@ MonoBehaviour:
         currentHP: 5
       - enemyID: 1
         currentHP: 10
+    - mapID: 3
+      enemyStates:
+      - enemyID: 0
+        currentHP: 5
+      - enemyID: 1
+        currentHP: 5
+      - enemyID: 2
+        currentHP: 5
+    - mapID: 4
+      enemyStates:
+      - enemyID: 0
+        currentHP: 10
+      - enemyID: 1
+        currentHP: 10
+    playerHP: 0
+    treasure: 0
   mapParent: {fileID: 1823049501}
 --- !u!4 &76304605
 Transform:
@@ -194,6 +210,8 @@ MonoBehaviour:
   filePath: 
   profileData:
     mapStates: []
+    playerHP: 0
+    treasure: 0
 --- !u!1 &186510768
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +567,7 @@ GameObject:
   - component: {fileID: 488205681}
   - component: {fileID: 488205680}
   m_Layer: 5
-  m_Name: UIDocument
+  m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -567,6 +585,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4a9178615bb6846868390d8dab2d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pause
+  pause:
+    m_Name: Pause
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9d51042f-a4c7-4c8f-b812-2e9e940aabb0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a8f81057-7af8-4098-b7e8-b89d7e4a0999
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pause
+      m_Flags: 0
+    m_Flags: 0
   saveing: {fileID: 76304606}
 --- !u!114 &488205681
 MonoBehaviour:
@@ -583,7 +618,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 39b7a0463fbedad44b9609907167a969, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 2fadd3fdf4cc09c47b198c7ddd0ba58a, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Position: 0
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
@@ -681,6 +716,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508837582}
   m_CullTransparentMesh: 1
+--- !u!1 &580255207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580255210}
+  - component: {fileID: 580255209}
+  - component: {fileID: 580255208}
+  m_Layer: 5
+  m_Name: HUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &580255208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580255207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c7a398fa6cecc41b38f042c7f9a313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HUD
+  player: {fileID: 1707846593}
+  state: {fileID: 76304604}
+--- !u!114 &580255209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580255207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 39b7a0463fbedad44b9609907167a969, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 6dc123df454f075479de5c75f5dcfdec, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &580255210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580255207}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,7 +1145,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707846592}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f58bb53e16f90a43a2a820964727771, type: 3}
   m_Name: 
@@ -1057,7 +1162,7 @@ MonoBehaviour:
   - state: 4
     animation: {fileID: 11400000, guid: 2af51703ee6f4d14784518e79ba4d941, type: 2}
   - state: 5
-    animation: {fileID: 11400000, guid: 402d6435f2f04094699643b3ecb9404c, type: 2}
+    animation: {fileID: 0}
   - state: 7
     animation: {fileID: 11400000, guid: 74f676590f78ef74da3dcf91ff56edb0, type: 2}
   - state: 6
@@ -1368,6 +1473,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 580255210}
   - {fileID: 1707846595}
   - {fileID: 1823049501}
   - {fileID: 934387789}
