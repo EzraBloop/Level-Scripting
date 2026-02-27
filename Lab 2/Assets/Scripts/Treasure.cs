@@ -3,16 +3,17 @@ using UnityEngine;
 public class Treasure : MonoBehaviour
 {
     public int value;
-    public static MapState Instance;
+    public GameStateManager Instance;
+    public MapState state;
 
     private void Awake()
     {
-        //Instance = GameStateManager.Instance;
+        
     }
 
     public void OnPickup()
     {
-        Instance.treasureCollected = true;
+        state.treasureCollected = true;
         Destroy(gameObject);
     }
 }
