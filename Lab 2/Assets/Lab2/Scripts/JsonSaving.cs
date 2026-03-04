@@ -24,27 +24,18 @@ public class JSonSaving : MonoBehaviour
         GameState saveProfile = new GameState();
         string json = JsonUtility.ToJson(GameStateManager.Instance.gameState, true);
 
-        File.WriteAllText(file, json);
+        File.WriteAllText(filePath, json);
 
     }
-
-    /*    public void SaveData(SaveData profile_)
-        {
-            string file = filePath + profile_.profileName + ".json";
-            string json = JsonUtility.ToJson(profile_, true);
-            File.WriteAllText(file, json);
-        }*/
-
-
 
     [ContextMenu("JSON Load")]
 
     public void LoadData()
     {
         string s = "Assets/Resources/save.json";
-        if (File.Exists(s))
+        if (File.Exists(filePath))
         {
-            string json = File.ReadAllText(s);
+            string json = File.ReadAllText(filePath);
             //Debug.Log(json);
             loadInfo.state = JsonUtility.FromJson<GameState>(json);
             //Debug.Log(GameStateManager.Instance.gameState);
@@ -59,9 +50,9 @@ public class JSonSaving : MonoBehaviour
     public void DeleteData()
     {
         string s = "Assets/Resources/save.json";
-        if (File.Exists(s))
+        if (File.Exists(filePath))
         {
-            File.Delete(s);
+            File.Delete(filePath);
         }
 
         else

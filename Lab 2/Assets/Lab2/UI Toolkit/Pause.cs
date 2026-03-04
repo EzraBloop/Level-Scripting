@@ -69,6 +69,8 @@ public class Pause : MonoBehaviour
     public void OnSave(ClickEvent evt)
     {
         Time.timeScale = 1.0f;
+        var state = GameStateManager.Instance;
+        state.SaveGameState();
         saveing.SaveData();
         SceneManager.LoadScene("MenuScene");
     }

@@ -9694,6 +9694,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Treasure
   value: 5
+  mapID: 0
+  Instance: {fileID: 0}
+  state:
+    mapID: 0
+    treasureCollected: 0
+    enemyStates: []
 --- !u!60 &6675871373566657367
 PolygonCollider2D:
   m_ObjectHideFlags: 0

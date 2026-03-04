@@ -45,7 +45,7 @@ public class Menu : MonoBehaviour
     public void OnContinue(ClickEvent evt)
     {
         saveing.LoadData();
-        if (!File.Exists("Assets/Resources/save.json"))
+        if (!File.Exists(Application.persistentDataPath + ".json"))
         {
             Debug.Log("no file");
         }

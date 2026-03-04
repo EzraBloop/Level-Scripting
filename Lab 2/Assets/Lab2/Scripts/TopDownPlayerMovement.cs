@@ -7,6 +7,8 @@ public class TopDownPlayerMovement : MonoBehaviour
 {
     public InputAction moveInput;
     public InputAction attack;
+    public GameObject projectilePrefab;
+    
     public InputAction interact;
     private Vector2 movementDirection = Vector2.zero;
     public int hp = 10;
@@ -44,6 +46,10 @@ public class TopDownPlayerMovement : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext c)
     {
+        GameObject obj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        PlayerAttack projectile = obj.GetComponent<PlayerAttack>();
+        projectile.InstantiateProjectile();
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 4f);
 
         foreach (Collider2D hit in hits)

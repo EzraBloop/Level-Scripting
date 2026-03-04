@@ -5,6 +5,10 @@ public class LoadInfo : MonoBehaviour
     public GameState state;
     private LoadInfo instance;
 
+    private void Start()
+    {
+        OnLoad();
+    }
     public void OnLoad()
     {
         state = GameStateManager.Instance.gameState;

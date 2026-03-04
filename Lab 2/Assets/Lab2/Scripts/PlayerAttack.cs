@@ -1,0 +1,29 @@
+using System.Collections;
+using UnityEngine;
+
+public class PlayerAttack : MonoBehaviour
+{
+    //Rigidbody2D rb;
+    //public float speed;
+    public float duration;
+
+    private void Awake()
+    {
+        //rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void InstantiateProjectile()
+    {
+        //rb.linearVelocity = direction * speed;
+        StartCoroutine(ProjectileTimer());
+    }
+
+   
+
+    public IEnumerator ProjectileTimer()
+    {
+        yield return new WaitForSeconds(duration);
+        yield return new WaitForEndOfFrame();
+        Destroy(gameObject);
+    }
+}

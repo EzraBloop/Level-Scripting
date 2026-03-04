@@ -152,33 +152,45 @@ MonoBehaviour:
   gameState:
     mapStates:
     - mapID: 0
+      treasureCollected: 0
       enemyStates:
       - enemyID: 0
         currentHP: 5
+        maxHP: 0
       - enemyID: 1
         currentHP: 10
+        maxHP: 0
     - mapID: 1
+      treasureCollected: 0
       enemyStates:
       - enemyID: 0
         currentHP: 5
+        maxHP: 0
       - enemyID: 1
         currentHP: 10
+        maxHP: 0
     - mapID: 3
+      treasureCollected: 0
       enemyStates:
       - enemyID: 0
         currentHP: 5
+        maxHP: 0
       - enemyID: 1
         currentHP: 5
+        maxHP: 0
       - enemyID: 2
         currentHP: 5
+        maxHP: 0
     - mapID: 4
+      treasureCollected: 0
       enemyStates:
       - enemyID: 0
         currentHP: 10
+        maxHP: 0
       - enemyID: 1
         currentHP: 10
-    playerHP: 0
-    treasure: 0
+        maxHP: 0
+    tresure: 0
   mapParent: {fileID: 1823049501}
 --- !u!4 &76304605
 Transform:
@@ -210,8 +222,8 @@ MonoBehaviour:
   filePath: 
   profileData:
     mapStates: []
-    playerHP: 0
-    treasure: 0
+    tresure: 0
+  loadInfo: {fileID: 0}
 --- !u!1 &186510768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1056,7 @@ MonoBehaviour:
       m_Action: Attack
       m_Flags: 0
     m_Flags: 0
+  projectilePrefab: {fileID: 6662010966835430358, guid: b00507031b4b64e4d93fa695c86583f1, type: 3}
   interact:
     m_Name: Interact
     m_Type: 0

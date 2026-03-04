@@ -16,8 +16,13 @@ public class GameStateManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        
         loadInfo = GameObject.FindGameObjectWithTag("LoadInfo").GetComponent<LoadInfo>();
-        gameState = loadInfo.state;
+        if(loadInfo.state.mapStates.Count == 4)
+        {
+            gameState = loadInfo.state;
+            Debug.Log("Info loaded");
+        }
     }
 
     private void Start()
@@ -38,10 +43,6 @@ public class GameStateManager : MonoBehaviour
             {
                 currentMapState = mapState;
                 BeginEnemySpawn(currentMapState);
-                if(mapState.treasureCollected == true)
-                {
-                    mapState.treasure.SetActive(false);
-                }
 
                 break;
             }
@@ -90,7 +91,6 @@ public class GameStateManager : MonoBehaviour
 public class MapState
 {
     public int mapID;
-    public GameObject treasure;
     public bool treasureCollected;
     public List<EnemyState> enemyStates;
     [NonSerialized] public Dictionary<int, EnemyState> enemyDictionary;
