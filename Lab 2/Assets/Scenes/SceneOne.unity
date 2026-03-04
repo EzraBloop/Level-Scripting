@@ -223,7 +223,7 @@ MonoBehaviour:
   profileData:
     mapStates: []
     tresure: 0
-  loadInfo: {fileID: 0}
+  loadInfo: {fileID: 665803065}
 --- !u!1 &186510768
 GameObject:
   m_ObjectHideFlags: 0
