@@ -4,28 +4,32 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public Dictionary<InventoryItemSO, InventoryItemData> inventory = new Dictionary<InventoryItemSO, InventoryItemData>();
+    public InventoryItemSO[] tmp;
 
     private void Start()
     {
-        
-    }
-
-    public void AddItem(InventoryItemSO _itemToAdd)
-    {
-        if(!inventory.TryAdd(_itemToAdd, _itemToAdd.CreateRuntimeData()))
+        foreach (InventoryItemSO item in tmp)
         {
-            inventory[_itemToAdd].quantity++;
+            AddItem(item);
+        }
+
+    }
+    public void AddItem(InventoryItemSO itemToAdd_)
+    {
+        if (!inventory.TryAdd(itemToAdd_, itemToAdd_.CreateRuntimeData()))
+        {
+            inventory[itemToAdd_].quantity++;
         }
     }
 
-    public void RemoveItem(InventoryItemSO _itemToRemove)
+    public void RemoveItem(InventoryItemSO itemToRemove_)
     {
-        //if(inventory.TryGetValue(_itemToRemove, out InventoryItemData _item)))
-        if (inventory[_itemToRemove].quantity > 1)
+        //if(inventory.TryGetValue(itemToRemove_, out ))
+        if (inventory[itemToRemove_].quantity > 1)
         {
-            inventory[_itemToRemove].quantity--;
+            inventory[itemToRemove_].quantity--;
             return;
         }
-        inventory.Remove(_itemToRemove);
+        inventory.Remove(itemToRemove_);
     }
 }
