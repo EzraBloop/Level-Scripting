@@ -8,12 +8,14 @@ public class TopDownPlayerMovement : MonoBehaviour
     public InputAction moveInput;
     public InputAction attack;
     public GameObject projectilePrefab;
+    public GameObject inventoryMenu;
     
     public InputAction interact;
     private Vector2 movementDirection = Vector2.zero;
     public int hp = 10;
     public float moveSpeed;
     public event Action<Vector2> OnMove;
+    private bool openInventory;
     private void Awake()
     {
         moveInput.Enable();
@@ -37,6 +39,20 @@ public class TopDownPlayerMovement : MonoBehaviour
     private void Update()
     {
         transform.position += new Vector3(movementDirection.x, movementDirection.y, 0) * moveSpeed * Time.deltaTime;
+
+        if (Keyboard.current.iKey.wasPressedThisFrame)
+        {
+            if(openInventory)
+            {
+                inventoryMenu.SetActive(false);
+                openInventory = false; 
+            }
+            else
+            {
+                inventoryMenu.SetActive(true);
+                openInventory = true;
+            }
+        }
 
         if(hp <= 0)
         {
@@ -67,7 +83,7 @@ public class TopDownPlayerMovement : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            Debug.Log(hit);
+            //Debug.Log(hit);
 
             if (hit.CompareTag("Fountain"))
             {

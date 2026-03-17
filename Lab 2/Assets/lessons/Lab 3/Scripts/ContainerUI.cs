@@ -14,6 +14,11 @@ public class ContainerUI : MonoBehaviour
 
     private void Start()
     {
+        //InitUI(debugContainer);
+    }
+
+    private void Awake()
+    {
         InitUI(debugContainer);
     }
 

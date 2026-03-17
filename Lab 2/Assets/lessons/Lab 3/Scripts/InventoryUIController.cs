@@ -8,6 +8,12 @@ public class InventoryUIController : MonoBehaviour
     public Transform contentParent;
 
     [ContextMenu("Init UI")]
+
+    private void Awake()
+    {
+        InitUI();
+    }
+
     public void InitUI()
     {
         Dictionary<InventoryItemSO, InventoryItemData> inventoryRef = targetInventory.inventory;
