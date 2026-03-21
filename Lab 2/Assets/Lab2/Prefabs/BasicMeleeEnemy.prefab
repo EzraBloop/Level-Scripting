@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangedEnemy
   enemyID: 0
+  inventoryContainer: {fileID: 5918699983168705130, guid: 6320f17e6cd39e0418c5744ae5b42c9d, type: 3}
   HP: 0
   ATK: 0
   DEF: 0

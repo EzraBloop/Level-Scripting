@@ -9,6 +9,14 @@ public class InventoryContainer : MonoBehaviour
     public List<InventoryItemSO> startingInventory = new();
     public InventoryManager playerInventoryManager;
     public event Action<InventoryContainer> onContainerUpdated;
+
+    private void Awake()
+    {
+        if (playerInventoryManager == null)
+        {
+            playerInventoryManager = FindFirstObjectByType<InventoryManager>();
+        }
+    }
     private void Start()
     {
         foreach (InventoryItemSO item in startingInventory)
@@ -16,7 +24,6 @@ public class InventoryContainer : MonoBehaviour
             if (!containerInventory.TryAdd(item, item.CreateRuntimeData()))
             {
                 containerInventory[item].quantity++;
-
             }
         }
 
@@ -36,6 +43,7 @@ public class InventoryContainer : MonoBehaviour
 
     public void AddItemToPlayerInventory(InventoryItemSO itemToAdd_) // call this when you lose an item
     {
+        Debug.Log(itemToAdd_);
         if (containerInventory.TryGetValue(itemToAdd_, out InventoryItemData data))
         {
             if (containerInventory[itemToAdd_].quantity > 1)

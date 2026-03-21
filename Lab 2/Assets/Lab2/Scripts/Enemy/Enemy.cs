@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     public int enemyID;
+    public InventoryContainer inventoryContainer;
     [Header("Combat Params")]
     public int HP;
     public int ATK;
@@ -34,6 +35,8 @@ public abstract class Enemy : MonoBehaviour
         aiMovement.OnArrive += Patrol;
 
         startingPosition = transform.position;
+
+        Instantiate(inventoryContainer);
     }
 
     public void FixedUpdate()
@@ -66,6 +69,8 @@ public abstract class Enemy : MonoBehaviour
     }
     public void Die()
     {
+        int i = Random.Range(0, 2);
+        inventoryContainer.AddItemToPlayerInventory(inventoryContainer.startingInventory[1]);
         gameObject.SetActive(false);
     }
     public void Pursue()

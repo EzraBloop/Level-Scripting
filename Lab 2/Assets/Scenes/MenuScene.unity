@@ -151,6 +151,7 @@ MonoBehaviour:
   filePath: 
   profileData:
     mapStates: []
+    tresure: 0
   loadInfo: {fileID: 0}
 --- !u!4 &263138012
 Transform:
@@ -501,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoadInfo
   state:
     mapStates: []
+    tresure: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
