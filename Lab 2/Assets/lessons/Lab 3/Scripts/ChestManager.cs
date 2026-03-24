@@ -35,7 +35,7 @@ public class ChestManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("out of range");
+        //Debug.Log("out of range");
         playerInRange = false;
         if (chestOpened)
         {

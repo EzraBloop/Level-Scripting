@@ -35,7 +35,7 @@ public class EquipmentManager : MonoBehaviour
         else if (itemToEquip is WeaponItemData weapon) 
         {
             equipmentDictionary[EquipmentSlot.WEAPON] = weapon;
-            Debug.Log(equipmentDictionary[EquipmentSlot.WEAPON].itemName + " was equipped");
+            //Debug.Log(equipmentDictionary[EquipmentSlot.WEAPON].itemName + " was equipped");
         }
         onEquip?.Invoke(equipmentDictionary);
     }
